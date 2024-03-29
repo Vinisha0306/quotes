@@ -6,9 +6,10 @@ class Assets {
       'lib/pages/home_page/componets/grid_view.dart';
   static const String componetsListView =
       'lib/pages/home_page/componets/list_view.dart';
+  static const String editPageEditPage = 'lib/pages/edit_page/edit_page.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String homePageHomePage = 'lib/pages/home_page/home_page.dart';
-  static const String imagesBg = 'lib/assets/images/bg.jpg';
+  static const String imagesBg = 'lib/assets/images/bg.png';
   static const String imagesWelcome = 'lib/assets/images/welcome.gif';
   static const String libApp = 'lib/app.dart';
   static const String libHeaders = 'lib/headers.dart';

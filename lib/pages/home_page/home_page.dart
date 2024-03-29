@@ -30,9 +30,17 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (context) => SimpleDialog(
         title: const Text('WelCome !!'),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25),
+        ),
         contentPadding: const EdgeInsets.all(16),
         children: [
-          Text(q.quote),
+          Text(
+            q.quote,
+            style: const TextStyle(
+              fontSize: 18,
+            ),
+          ),
         ],
       ),
     );
@@ -50,6 +58,8 @@ class _HomePageState extends State<HomePage> {
   }
 
   bool view = false;
+  String? selCategory;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,6 +74,16 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         actions: [
+          IconButton(
+            onPressed: () {
+              selCategory = null;
+              setState(() {});
+            },
+            icon: const Icon(
+              Icons.refresh,
+              color: Colors.black,
+            ),
+          ),
           GestureDetector(
             onTap: () {
               view = !view;
@@ -90,7 +110,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('lib/assets/images/bg.jpg'),
+                image: AssetImage('lib/assets/images/bg.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -107,17 +127,29 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       ...List.generate(
                         allCategory.length,
-                        (index) => Container(
-                          margin: const EdgeInsets.all(10),
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.7),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Text(
-                            allCategory[index],
-                            style: const TextStyle(
-                              fontSize: 18,
+                        (index) => GestureDetector(
+                          onTap: () {
+                            selCategory = allCategory[index];
+                            setState(() {});
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.all(10),
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: allCategory[index] == selCategory
+                                  ? Colors.primaries[index % 18]
+                                      .withOpacity(0.7)
+                                  : Colors.white.withOpacity(0.7),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Text(
+                              UpperCase[index],
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: allCategory[index] == selCategory
+                                    ? Colors.white
+                                    : Colors.black,
+                              ),
                             ),
                           ),
                         ),
@@ -126,7 +158,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              view != true ? List_View() : Grid_view(),
+              view != true
+                  ? List_View(category: selCategory)
+                  : Grid_view(category: selCategory),
             ],
           )
         ],

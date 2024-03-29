@@ -359,4 +359,19 @@ List<Quote> allQuotes = allQuoteData
     )
     .toList();
 
-List allCategory = allQuotes.map((e) => e.category).toSet().toList();
+List allCategory = allQuotes
+    .map(
+      (e) => e.category.toString(),
+    )
+    .toSet()
+    .toList();
+
+List UpperCase = allQuotes
+    .map(
+      (e) => e.category.toString().replaceFirst(
+            e.category[0],
+            e.category[0].toUpperCase(),
+          ),
+    )
+    .toSet()
+    .toList();
