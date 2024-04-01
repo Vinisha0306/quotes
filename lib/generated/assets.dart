@@ -6,6 +6,8 @@ class Assets {
       'lib/pages/home_page/componets/grid_view.dart';
   static const String componetsListView =
       'lib/pages/home_page/componets/list_view.dart';
+  static const String componetsSpace =
+      'lib/pages/edit_page/componets/space.dart';
   static const String editPageEditPage = 'lib/pages/edit_page/edit_page.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
   static const String homePageHomePage = 'lib/pages/home_page/home_page.dart';
