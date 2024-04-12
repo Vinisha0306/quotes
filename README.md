@@ -43,6 +43,3 @@ Control the transparency of the background to ensure the text remains legible.
 3. Customize the app by adjusting the text size, text color, background color, and background opacity settings.
 4. Explore and enjoy a curated collection of inspiring quotes.
 5. Share your favorite quotes with others.
-
-
-This project is licensed under the [MIT License](link_to_license), which means you are free to use, mo
