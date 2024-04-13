@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'dart:typed_data';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:quotes/headers.dart';
 import 'package:quotes/pages/edit_page/componets/space.dart';
@@ -22,28 +24,6 @@ class EditPage extends StatefulWidget {
   State<EditPage> createState() => _EditPageState();
 }
 
-List align = [
-  'Top & Left',
-  'Top & Center',
-  'Top & Right',
-  'Center & Left',
-  'Center',
-  'Center & Right',
-  'Bottom & Left',
-  'Bottom & Center',
-  'Bottom & Right'
-];
-List<Alignment> alignment = [
-  Alignment.topLeft,
-  Alignment.topCenter,
-  Alignment.topRight,
-  Alignment.centerLeft,
-  Alignment.center,
-  Alignment.centerRight,
-  Alignment.bottomLeft,
-  Alignment.bottomCenter,
-  Alignment.bottomLeft,
-];
 GlobalKey widgetKey = GlobalKey();
 
 Future<File> getFileFromWidget() async {
@@ -70,6 +50,7 @@ Color BGC = Colors.white;
 Color TC = Colors.black;
 double opacity = 1;
 Alignment TA = Alignment.center;
+double ts = 14;
 
 class _EditPageState extends State<EditPage> {
   @override
@@ -139,7 +120,7 @@ class _EditPageState extends State<EditPage> {
                     ShareExtend.share(
                         (await getFileFromWidget()).path, 'image');
                   },
-                  icon: Icon(Icons.share),
+                  icon: const Icon(Icons.share),
                 ),
               ],
             ),
@@ -164,12 +145,14 @@ class _EditPageState extends State<EditPage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
-                            quote.quote,
-                            style: TextStyle(
-                              fontSize: 20,
-                              wordSpacing: 10,
-                              color: TC,
+                          SingleChildScrollView(
+                            child: Text(
+                              quote.quote,
+                              style: TextStyle(
+                                fontSize: ts,
+                                wordSpacing: 10,
+                                color: TC,
+                              ),
                             ),
                           ),
                           const SizedBox(
@@ -253,36 +236,43 @@ class _EditPageState extends State<EditPage> {
                       ],
                     ),
                   ),
-                  spacer(text: 'Text Align'),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        ...List.generate(
-                          align.length,
-                          (index) => GestureDetector(
-                            onTap: () {
-                              TA = alignment[index];
-                              setState(() {});
-                            },
-                            child: Container(
-                              padding: EdgeInsets.all(10),
-                              margin: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                border: Border.all(
-                                  color: Colors.black,
-                                  width: 2,
-                                ),
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                              child: Text(align[index]),
-                            ),
-                          ),
+                  Row(
+                    children: [
+                      const Text(
+                        'Text Size',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
                         ),
-                      ],
-                    ),
-                  )
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        onPressed: () {
+                          ts--;
+                          setState(() {});
+                        },
+                        icon: const Icon(
+                          CupertinoIcons.minus_circle_fill,
+                        ),
+                      ),
+                      Text(
+                        '${ts.toInt()}',
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          ts++;
+                          setState(() {});
+                        },
+                        icon: const Icon(
+                          CupertinoIcons.plus_circle_fill,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
           Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('lib/assets/images/bg.png'),
+                image: AssetImage('lib/assets/images/bg.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -142,6 +142,7 @@ class _HomePageState extends State<HomePage> {
                                   : Colors.white.withOpacity(0.7),
                               borderRadius: BorderRadius.circular(10),
                             ),
+                            alignment: Alignment.center,
                             child: Text(
                               UpperCase[index],
                               style: TextStyle(

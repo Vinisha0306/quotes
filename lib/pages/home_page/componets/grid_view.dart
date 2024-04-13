@@ -38,13 +38,17 @@ Widget Grid_view({required String? category}) {
                         children: [
                           Text(
                             allQuotes[index].quote,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 18,
                             ),
-                            maxLines: 8,
+                            maxLines: 6,
                             overflow: TextOverflow.ellipsis,
                           ),
-                          Text("- ${allQuotes[index].author}"),
+                          Text(
+                            "- ${allQuotes[index].author}",
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
+                          ),
                         ],
                       ),
                     ),
@@ -66,10 +70,10 @@ Widget Grid_view({required String? category}) {
                             children: [
                               Text(
                                 l[index].quote,
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 18,
                                 ),
-                                maxLines: 8,
+                                maxLines: 6,
                                 overflow: TextOverflow.ellipsis,
                               ),
                               Text("- ${l[index].author}"),
