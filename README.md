@@ -36,10 +36,7 @@ Control the transparency of the background to ensure the text remains legible.
 <img src="https://github.com/Vinisha0306/quotes/assets/143987696/bb836b30-430d-4f2a-83c1-13be375d8cfb" width="250" height="550">
 <img src="https://github.com/Vinisha0306/quotes/assets/143987696/9d17f6ee-eee7-4ac9-a272-f8b444e749bc" width="250" height="550">
 
-## Usage
+## Video
 
-1. Clone the repository to your local machine.
-2. Open the app in your preferred development environment.
-3. Customize the app by adjusting the text size, text color, background color, and background opacity settings.
-4. Explore and enjoy a curated collection of inspiring quotes.
-5. Share your favorite quotes with others.
+https://github.com/Vinisha0306/quotes/assets/143987696/d778aca1-6d00-4a47-8149-614738ccd08a
+
